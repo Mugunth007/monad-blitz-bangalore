@@ -3,6 +3,7 @@
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
+import { Address as AddressType } from "viem";
 
 const LeaderboardPage: NextPage = () => {
     const { address: connectedAddress } = useAccount();
@@ -48,7 +49,7 @@ const LeaderboardPage: NextPage = () => {
                                                     <span className="text-xs">{user.address.substring(2, 4)}</span>
                                                 </div>
                                             </div>
-                                            <Address address={user.address} size="sm" />
+                                           <Address address={user.address as AddressType} size="sm" />
                                         </div>
                                     </td>
                                     <td className="text-center font-bold text-primary">{user.cleanups}</td>
